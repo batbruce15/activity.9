@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.activty9.activty9.mappers.rendezVousMapper">
+    <resultMap id="rendezVousResultMap" type="com.activty9.activty9.models.rendezVous">
+        <id property="id" column="id"/>
+        <result property="date_rdv" column="date_rdv "/>
+        <result property="id_patient" column="id_patient"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="rendezVousResultMap"> select *from cabinet.rendez_vous; </select>
+    <select id="getById" parameterType="int" resultMap="rendezVousResultMap"> SELECT * FROM cabinet.patient WHERE id = #{id} </select>
+    <select id="getByName" parameterType="String" resultMap="rendezVousResultMap"> SELECT * FROM cabinet.patient WHERE nom = #{nom} </select>
+</mapper>

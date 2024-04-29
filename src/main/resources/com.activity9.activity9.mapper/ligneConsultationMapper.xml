@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.activty9.activty9.mappers.lignConsultationMapper">
+    <resultMap id="ligneConsultationResultMap" type="com.activty9.activty9.models.ligneConsultation">
+        <id property="id" column="id"/>
+        <result property="id_consultation" column="id_consultation"/>
+        <result property="id_traitement" column="id_traitement"/>
+        <result property="posologie" column="posologie"/>
+        <result property="unite_temps" column="unite_temps"/>
+        <result property="quantite" column="quantite"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="ligneConsultationResultMap"> SELECT * FROM cabinet.ligne_consultation </select>
+
+    <select id="getById" parameterType="int" resultMap="ligneConsultationResultMap"> SELECT * FROM cabinet.patient WHERE id = #{id} </select>
+
+    <select id="getByName" parameterType="String" resultMap="ligneConsultationResultMap"> SELECT * FROM cabinet.patient WHERE nom = #{nom} </select>
+
+</mapper>
